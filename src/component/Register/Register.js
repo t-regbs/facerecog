@@ -20,7 +20,7 @@ class Register extends React.Component {
 		this.setState({password: event.target.value})
 	}
 	onSubmitSignin = () =>{
-		fetch("http://localhost:3000/register",{
+		fetch("https://vast-sea-68479.herokuapp.com/register",{
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
