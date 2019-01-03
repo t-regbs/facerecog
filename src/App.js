@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navigation from './component/Navigation/Navigation';
 import FaceRecognition from './component/FaceRecognition/FaceRecognition';
 import Logo from './component/Logo/Logo';
+import Clarifai from 'clarifai';
 import Signin from './component/Signin/Signin';
 import Register from './component/Register/Register';
 import Particles from 'react-particles-js';
@@ -98,7 +99,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response){
-          fetch(" https://vast-sea-68479.herokuapp.com/image",{
+          fetch('https://vast-sea-68479.herokuapp.com/image',{
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -106,7 +107,7 @@ class App extends Component {
             })
           })
             .then(response => response.json())
-            .then(count =>{
+            .then(count => {
               this.setState(Object.assign(this.state.user, {entries: count}))
             })
             .catch(console.log)
